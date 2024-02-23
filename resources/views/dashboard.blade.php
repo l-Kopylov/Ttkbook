@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Панель администратора') }}
         </h2>
     </x-slot>
 
@@ -15,13 +15,48 @@
         </div>
     </div>
     <div class="py-12">
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">    
-            <div class="text-center" data-path="0.0.0">
+            <div class="items-center" data-path="0.0.0">
+            @if (Route::has('login'))
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                    @auth
+                    <button type="button" class="text-blue bg-gradient-to-r from-green-400 via-green-500 to-green-600 
+                        hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium 
+                        rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    Добавить пользователя
+                    </button> <br />                                     
+                    <button type="button" class="text-blue bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br 
+                        focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800
+                        font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    Добавить рубрику
+                    </button><br />
+                    <button type="button" class="text-blue bg-gradient-to-r from-green-400 via-green-500 to-green-600 
+                        hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium 
+                        rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    Добавить книгу
+                    </button><br />
+                     
+                    <div class="sm:fixed sm:top-0 sm:left-0 p-6 text-right z-10">
+                        <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white 
+                        focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Главная</a>
+                    </div>
+                    @else
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
                 <span class="inline-block mb-4 text-sm text-green-400 font-medium tracking-tighter" data-config-id="auto-txt-1-3" data-path="0.0.0.0">Nightsable Card</span>
                 <h4 class="mb-4 text-7xl lg:text-8xl text-white tracking-8xl md:max-w-md mx-auto" data-config-id="auto-txt-2-3" data-path="0.0.0.1">money</h4>
                 <p class="mb-20 text-gray-300 md:max-w-md mx-auto" data-config-id="auto-txt-3-3" data-path="0.0.0.2">Nightsable is a strategic branding agency focused on brand creation, rebrands, and brand</p>
+
             </div>
             <div class="flex flex-wrap -m-3" data-path="0.0.1">
+                
                 <div class="w-full md:w-1/2 lg:w-1/4 p-3" data-path="0.0.1.0">
                 <div class="flex flex-wrap -m-3" data-path="0.0.1.0.0">
                     <div class="w-full p-3" data-path="0.0.1.0.0.0">
@@ -55,16 +90,19 @@
                             <svg class="mr-2.5" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-2-3" data-path="0.0.1.0.0.0.0.3.1.0">
                             <path d="M13.247 8.07345C12.8137 10.7001 10.8604 12.7201 8.24702 13.2135C6.81369 13.4868 5.45368 13.2735 4.28035 12.7201C4.08701 12.6268 3.77367 12.5868 3.56701 12.6335C3.12701 12.7401 2.38703 12.9201 1.76037 13.0668C1.16037 13.2135 0.78704 12.8401 0.933706 12.2401L1.36702 10.4401C1.42035 10.2335 1.37368 9.91345 1.28035 9.72012C0.747012 8.60012 0.533693 7.30012 0.753693 5.93345C1.18036 3.30678 3.30037 1.18012 5.92703 0.746784C10.2604 0.0467841 13.9537 3.74012 13.247 8.07345Z" stroke="#9F9FA0" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" data-path="0.0.1.0.0.0.0.3.1.0.0"></path>
                             </svg>
-                            <p class="text-sm text-gray-300" data-config-id="auto-txt-10-3" data-path="0.0.1.0.0.0.0.3.1.1">81 com.</p>
+                            <p class="text-sm text-gray-300" data-config-id="auto-txt-10-3" data-path="0.0.1.0.0.0.0.3.1.1"></p>
+                        <div class="grid grid-flow-row auto-rows-max">
                             <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                             Показать
-                        </button>
-                        <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
-                            Редактировать
-                        </button>
-                        <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
-                            Удалить
-                        </button>
+                            </button><br />
+                            <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border 
+                                border-green-500 hover:border-transparent rounded">
+                                Редактировать
+                            </button><br />
+                            <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
+                                Удалить
+                            </button><br />
+                        </div>
                         </div>
                         </div>
                     </div>
@@ -106,17 +144,19 @@
                             <svg class="mr-2.5" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-10-3" data-path="0.0.1.1.0.1.0.3.1.0">
                             <path d="M13.247 8.07345C12.8137 10.7001 10.8604 12.7201 8.24702 13.2135C6.81369 13.4868 5.45368 13.2735 4.28035 12.7201C4.08701 12.6268 3.77367 12.5868 3.56701 12.6335C3.12701 12.7401 2.38703 12.9201 1.76037 13.0668C1.16037 13.2135 0.78704 12.8401 0.933706 12.2401L1.36702 10.4401C1.42035 10.2335 1.37368 9.91345 1.28035 9.72012C0.747012 8.60012 0.533693 7.30012 0.753693 5.93345C1.18036 3.30678 3.30037 1.18012 5.92703 0.746784C10.2604 0.0467841 13.9537 3.74012 13.247 8.07345Z" stroke="#9F9FA0" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" data-path="0.0.1.1.0.1.0.3.1.0.0"></path>
                             </svg>
-                            <p class="text-sm text-gray-300" data-config-id="auto-txt-40-3" data-path="0.0.1.1.0.1.0.3.1.1">81 com.</p>
+                            <p class="text-sm text-gray-300" data-config-id="auto-txt-40-3" data-path="0.0.1.1.0.1.0.3.1.1"></p>
+                            <div class="grid grid-flow-row auto-rows-max">
                             <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                                Показать
-                            </button>
-                            <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
+                            Показать
+                            </button><br />
+                            <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border 
+                                border-green-500 hover:border-transparent rounded">
                                 Редактировать
-                            </button>
+                            </button><br />
                             <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
                                 Удалить
-                            </button>                            
-                            
+                            </button><br />
+                        </div>
                         </div>
                         </div>
                     </div>
@@ -156,16 +196,19 @@
                             <svg class="mr-2.5" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-12-3" data-path="0.0.1.2.0.0.0.3.1.0">
                             <path d="M13.247 8.07345C12.8137 10.7001 10.8604 12.7201 8.24702 13.2135C6.81369 13.4868 5.45368 13.2735 4.28035 12.7201C4.08701 12.6268 3.77367 12.5868 3.56701 12.6335C3.12701 12.7401 2.38703 12.9201 1.76037 13.0668C1.16037 13.2135 0.78704 12.8401 0.933706 12.2401L1.36702 10.4401C1.42035 10.2335 1.37368 9.91345 1.28035 9.72012C0.747012 8.60012 0.533693 7.30012 0.753693 5.93345C1.18036 3.30678 3.30037 1.18012 5.92703 0.746784C10.2604 0.0467841 13.9537 3.74012 13.247 8.07345Z" stroke="#9F9FA0" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" data-path="0.0.1.2.0.0.0.3.1.0.0"></path>
                             </svg>
-                            <p class="text-sm text-gray-300" data-config-id="auto-txt-47-3" data-path="0.0.1.2.0.0.0.3.1.1">81 com.</p>
+                            <p class="text-sm text-gray-300" data-config-id="auto-txt-47-3" data-path="0.0.1.2.0.0.0.3.1.1"></p>
+                            <div class="grid grid-flow-row auto-rows-max">
                             <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                                Показать
-                            </button>
-                            <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
+                            Показать
+                            </button><br />
+                            <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border 
+                                border-green-500 hover:border-transparent rounded">
                                 Редактировать
-                            </button>
+                            </button><br />
                             <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
                                 Удалить
-                            </button>   
+                            </button><br />
+                        </div>
 
                         </div>
                         </div>
@@ -207,16 +250,19 @@
                             <svg class="mr-2.5" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-18-3" data-path="0.0.1.3.0.0.0.4.1.0">
                             <path d="M13.247 8.07345C12.8137 10.7001 10.8604 12.7201 8.24702 13.2135C6.81369 13.4868 5.45368 13.2735 4.28035 12.7201C4.08701 12.6268 3.77367 12.5868 3.56701 12.6335C3.12701 12.7401 2.38703 12.9201 1.76037 13.0668C1.16037 13.2135 0.78704 12.8401 0.933706 12.2401L1.36702 10.4401C1.42035 10.2335 1.37368 9.91345 1.28035 9.72012C0.747012 8.60012 0.533693 7.30012 0.753693 5.93345C1.18036 3.30678 3.30037 1.18012 5.92703 0.746784C10.2604 0.0467841 13.9537 3.74012 13.247 8.07345Z" stroke="#9F9FA0" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" data-path="0.0.1.3.0.0.0.4.1.0.0"></path>
                             </svg>
-                            <p class="text-sm text-gray-300" data-config-id="auto-txt-69-3" data-path="0.0.1.3.0.0.0.4.1.1">81 com.</p>
+                            <p class="text-sm text-gray-300" data-config-id="auto-txt-69-3" data-path="0.0.1.3.0.0.0.4.1.1"></p>
+                            <div class="grid grid-flow-row auto-rows-max">
                             <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                                Показать
-                            </button>
-                            <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
+                            Показать
+                            </button><br />
+                            <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border 
+                                border-green-500 hover:border-transparent rounded">
                                 Редактировать
-                            </button>
+                            </button><br />
                             <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
                                 Удалить
-                            </button>   
+                            </button><br />
+                        </div> 
                         </div>
                         </div>
                     </div>
