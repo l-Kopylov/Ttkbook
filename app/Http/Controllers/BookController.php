@@ -31,7 +31,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'bname'=> 'required|string|max:255',
+            'bdescription'=> 'required|string',
+        ]);
+
+        Book::create($request->all());
+        return response('success', 201);
     }
 
     /**

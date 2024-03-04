@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rubrics', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('rname', 150)->unique();
             $table->text('rdescription', 500);
             $table->timestamps();
