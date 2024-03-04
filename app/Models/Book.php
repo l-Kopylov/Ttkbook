@@ -13,4 +13,12 @@ class Book extends Model
         'bname',
         'bdescription'
     ];
+
+    public function rubrics() {
+        return $this->belongsToMany(Rubric::class);
+    }
+
+    public function authors() {
+        return $this->belongsToMany(Autor::class);
+    }
 }
